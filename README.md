@@ -1,69 +1,42 @@
-# Mio Bookmark Privacy Policy Website
+# Mio Bookmark Privacy Policy
 
-Licensed under the MIT License.
+Public privacy policy for the Mio Bookmark Chrome extension, covering version 0.2.0.
 
-This repository hosts the public Privacy Policy page for the **Mio Bookmark** Chrome extension.
+## Live page
 
-## Purpose
+https://devmobilean27.github.io/Mio-Bookmark-Privacy-Policy-Pages/
 
-This website is used as the public **Privacy Policy URL** for Chrome Web Store submission.
+Use this public page in the Chrome Web Store **Privacy policy URL** field. The former `nguyenquocandev27.github.io` URL is outdated.
 
-It explains:
+## Content
 
-* what data Mio Bookmark may access or collect
-* how the data is used
-* whether the data is shared
-* how users can contact the developer
+The policy is available in English and Tiếng Việt and explains:
 
-## Live URL
+- Bookmark data, current-tab information, preferences, and temporary interface state.
+- Local browser storage and the difference between importing a copy and editing Chrome bookmarks directly.
+- The `bookmarks`, `storage`, `sidePanel`, and `tabs` permissions.
+- Remote favicon requests, third-party websites, retention, deletion, and contact information.
 
-After GitHub Pages is enabled, the site is available at:
+The extension does not require an account, an activation key, or Premium registration.
 
-`https://nguyenquocandev27.github.io/Mio-Bookmark/`
+## Files
 
-## Main File
+- `index.html`: standalone responsive page with both languages and language navigation links. No build step, external assets, analytics, or JavaScript dependencies.
+- `PRIVACY-POLICY.md`: editable text version of the same policy.
+- `LICENSE`: MIT license.
 
-The main webpage is:
+## Publishing
 
-* `index.html`
+Push changes to `main`. GitHub Pages is configured to publish the repository root. Check the Pages deployment in GitHub Actions, then verify the live page shows the updated date and content.
 
-This file contains:
-
-* the Privacy Policy content
-* a professional landing-page style layout
-* a language toggle for **English / Tiếng Việt**
-
-## GitHub Pages Deployment
-
-To publish this site with GitHub Pages:
-
-1. Push `index.html` to the repository root
-2. Go to **Settings** in the GitHub repository
-3. Open **Pages**
-4. In **Build and deployment**, choose:
-
-   * **Source:** Deploy from a branch
-   * **Branch:** `main`
-   * **Folder:** `/root`
-5. Save the settings
-6. Wait for GitHub Pages to publish the website
-
-## Chrome Web Store Usage
-
-Use the live GitHub Pages URL as the **Privacy policy URL** in your Chrome Web Store listing.
-
-Example:
-
-`https://nguyenquocandev27.github.io/Mio-Bookmark/`
+If configuring Pages again, select **Settings → Pages → Deploy from a branch → main → /(root)**.
 
 ## Contact
 
-Developer contact email:
+nguyenquocan841@gmail.com
 
-`nguyenquocan841@gmail.com`
+## References
 
-## Notes
+[Chrome Web Store privacy-policy requirements](https://developer.chrome.com/docs/webstore/program-policies/privacy)
 
-* This page is intended to be public.
-* Keep the Privacy Policy content aligned with the actual behavior of the extension.
-* Update the page whenever your extension changes how user data is accessed, collected, or used.
+Licensed under the [MIT License](LICENSE).

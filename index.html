@@ -1,531 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Privacy Policy for Mio Bookmark Chrome Extension" />
-  <title>Privacy Policy | Mio Bookmark</title>
-  <style>
-    :root {
-      --bg: #f4f7fb;
-      --surface: #ffffff;
-      --surface-2: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --line: #e2e8f0;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --max: 980px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 32%),
-        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 56px 0 28px;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,0.78);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(226,232,240,0.9);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 32px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #1d4ed8;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .lang-toggle {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
-    }
-
-    .lang-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .lang-btn.active {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
-    }
-
-    h1 {
-      margin: 16px 0 12px;
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .meta-item {
-      padding: 10px 14px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-      padding-bottom: 56px;
-    }
-
-    .panel, .content-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .panel {
-      position: sticky;
-      top: 20px;
-      padding: 20px;
-    }
-
-    .panel h2 {
-      margin: 0 0 12px;
-      font-size: 15px;
-      letter-spacing: 0.01em;
-    }
-
-    .toc {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .toc li + li { margin-top: 8px; }
-
-    .toc a {
-      display: block;
-      padding: 10px 12px;
-      border-radius: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .toc a:hover {
-      background: var(--surface-2);
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .content-card {
-      padding: 32px;
-    }
-
-    section + section {
-      margin-top: 34px;
-      padding-top: 34px;
-      border-top: 1px solid var(--line);
-    }
-
-    h2.section-title {
-      margin: 0 0 14px;
-      font-size: 24px;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: #1e293b;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      color: #1e293b;
-    }
-
-    li + li { margin-top: 10px; }
-
-    .callout {
-      margin-top: 16px;
-      padding: 16px 18px;
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-      border-radius: 14px;
-      color: #1e3a8a;
-    }
-
-    .footer {
-      margin-top: 34px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .contact-box {
-      margin-top: 14px;
-      padding: 16px 18px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .panel {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding-top: 28px; }
-      .hero-card, .content-card, .panel { padding: 20px; }
-      .hero p { font-size: 16px; }
-      h2.section-title { font-size: 22px; }
-      .topbar { align-items: stretch; }
-      .lang-toggle { width: 100%; justify-content: center; }
-      .lang-btn { flex: 1; }
-    }
-  </style>
-</head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="topbar">
-          <div class="badge" data-i18n="badge">Mio Bookmark • Chrome Extension</div>
-          <div class="lang-toggle" aria-label="Language switcher">
-            <button type="button" class="lang-btn active" data-lang="en">English</button>
-            <button type="button" class="lang-btn" data-lang="vi">Tiếng Việt</button>
-          </div>
-        </div>
-
-        <h1 data-i18n="heroTitle">Privacy Policy</h1>
-        <p data-i18n="heroDesc">
-          This Privacy Policy explains what information Mio Bookmark may access or collect,
-          how that information is used, and how we protect it when you use the extension.
-        </p>
-        <div class="meta">
-          <div class="meta-item"><strong data-i18n="effectiveLabel">Effective date:</strong>&nbsp; <span data-i18n="effectiveDate">March 15, 2026</span></div>
-          <div class="meta-item"><strong data-i18n="contactLabel">Contact:</strong>&nbsp; nguyenquocan841@gmail.com</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container layout">
-    <aside class="panel" aria-label="Table of contents">
-      <h2 data-i18n="contentsTitle">Contents</h2>
-      <ul class="toc">
-        <li><a href="#purpose" data-i18n="toc1">1. Purpose of the Extension</a></li>
-        <li><a href="#collect" data-i18n="toc2">2. Information We Collect</a></li>
-        <li><a href="#use" data-i18n="toc3">3. How We Use Information</a></li>
-        <li><a href="#sharing" data-i18n="toc4">4. Data Sharing</a></li>
-        <li><a href="#retention" data-i18n="toc5">5. Data Retention</a></li>
-        <li><a href="#security" data-i18n="toc6">6. Data Security</a></li>
-        <li><a href="#choices" data-i18n="toc7">7. Your Choices</a></li>
-        <li><a href="#changes" data-i18n="toc8">8. Changes to This Policy</a></li>
-        <li><a href="#contact" data-i18n="toc9">9. Contact</a></li>
-      </ul>
-    </aside>
-
-    <article class="content-card">
-      <section id="purpose">
-        <h2 class="section-title" data-i18n="s1Title">1. Purpose of the Extension</h2>
-        <p data-i18n="s1p1">
-          Mio Bookmark is designed solely to help users manage Chrome bookmarks in a more visual and convenient way.
-          The extension lets users browse bookmarks in a folder tree, search quickly, reorganize items, save the current page,
-          sync bookmarks from the current Chrome profile, and customize folder display with icons, colors, and interface settings.
-        </p>
-        <p data-i18n="s1p2">
-          All features are intended only to support organizing, accessing, and personalizing bookmarks within the browser.
-        </p>
-      </section>
-
-      <section id="collect">
-        <h2 class="section-title" data-i18n="s2Title">2. Information We Collect</h2>
-        <p data-i18n="s2p1">We collect or access information only when necessary to provide the extension's functionality.</p>
-        <ul>
-          <li data-i18n="s2li1"><strong>Email address:</strong> only when the user voluntarily provides it to receive an activation key or enable Premium access.</li>
-          <li data-i18n="s2li2"><strong>Bookmark-related data:</strong> bookmark folders, bookmark items, and related structure available in the user's Chrome profile, only as needed for bookmark management features.</li>
-          <li data-i18n="s2li3"><strong>Customization preferences:</strong> icons, colors, layout settings, and interface preferences chosen by the user.</li>
-        </ul>
-        <div class="callout" data-i18n="s2callout">
-          Mio Bookmark does not collect personal information beyond what is necessary to provide bookmark management and optional Premium activation.
-        </div>
-      </section>
-
-      <section id="use">
-        <h2 class="section-title" data-i18n="s3Title">3. How We Use Information</h2>
-        <ul>
-          <li data-i18n="s3li1">To provide the extension's core bookmark management features.</li>
-          <li data-i18n="s3li2">To display, organize, search, edit, and personalize bookmarks in Chrome.</li>
-          <li data-i18n="s3li3">To sync and maintain bookmark-related settings for the current user profile.</li>
-          <li data-i18n="s3li4">To send activation keys or verify Premium access when a user provides an email address.</li>
-          <li data-i18n="s3li5">To respond to support requests related to extension access or functionality.</li>
-        </ul>
-      </section>
-
-      <section id="sharing">
-        <h2 class="section-title" data-i18n="s4Title">4. Data Sharing</h2>
-        <p data-i18n="s4p1">
-          We do not sell personal information. We do not share user data with third parties except when necessary to operate the service,
-          such as using an email delivery provider to send activation emails, or when required by law.
-        </p>
-      </section>
-
-      <section id="retention">
-        <h2 class="section-title" data-i18n="s5Title">5. Data Retention</h2>
-        <p data-i18n="s5p1">
-          We retain personal information only for as long as necessary to provide the service, comply with legal obligations,
-          resolve disputes, and enforce our agreements.
-        </p>
-      </section>
-
-      <section id="security">
-        <h2 class="section-title" data-i18n="s6Title">6. Data Security</h2>
-        <p data-i18n="s6p1">
-          We take reasonable administrative, technical, and organizational measures to protect information against unauthorized access,
-          alteration, disclosure, or destruction.
-        </p>
-      </section>
-
-      <section id="choices">
-        <h2 class="section-title" data-i18n="s7Title">7. Your Choices</h2>
-        <p data-i18n="s7p1">
-          You may contact us to request access, correction, or deletion of personal information you have provided,
-          subject to applicable law and technical limitations.
-        </p>
-      </section>
-
-      <section id="changes">
-        <h2 class="section-title" data-i18n="s8Title">8. Changes to This Policy</h2>
-        <p data-i18n="s8p1">
-          We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised effective date.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2 class="section-title" data-i18n="s9Title">9. Contact</h2>
-        <p data-i18n="s9p1">If you have questions about this Privacy Policy, please contact:</p>
-        <div class="contact-box">
-          <strong data-i18n="emailLabel">Email:</strong> <a href="mailto:nguyenquocan841@gmail.com">nguyenquocan841@gmail.com</a>
-        </div>
-      </section>
-
-      <div class="footer" data-i18n="footer">© 2026 Mio Bookmark. All rights reserved.</div>
-    </article>
-  </main>
-
-  <script>
-    const translations = {
-      en: {
-        badge: 'Mio Bookmark • Chrome Extension',
-        heroTitle: 'Privacy Policy',
-        heroDesc: "This Privacy Policy explains what information Mio Bookmark may access or collect, how that information is used, and how we protect it when you use the extension.",
-        effectiveLabel: 'Effective date:',
-        effectiveDate: 'March 15, 2026',
-        contactLabel: 'Contact:',
-        contentsTitle: 'Contents',
-        toc1: '1. Purpose of the Extension',
-        toc2: '2. Information We Collect',
-        toc3: '3. How We Use Information',
-        toc4: '4. Data Sharing',
-        toc5: '5. Data Retention',
-        toc6: '6. Data Security',
-        toc7: '7. Your Choices',
-        toc8: '8. Changes to This Policy',
-        toc9: '9. Contact',
-        s1Title: '1. Purpose of the Extension',
-        s1p1: "Mio Bookmark is designed solely to help users manage Chrome bookmarks in a more visual and convenient way. The extension lets users browse bookmarks in a folder tree, search quickly, reorganize items, save the current page, sync bookmarks from the current Chrome profile, and customize folder display with icons, colors, and interface settings.",
-        s1p2: 'All features are intended only to support organizing, accessing, and personalizing bookmarks within the browser.',
-        s2Title: '2. Information We Collect',
-        s2p1: "We collect or access information only when necessary to provide the extension's functionality.",
-        s2li1: '<strong>Email address:</strong> only when the user voluntarily provides it to receive an activation key or enable Premium access.',
-        s2li2: '<strong>Bookmark-related data:</strong> bookmark folders, bookmark items, and related structure available in the user\'s Chrome profile, only as needed for bookmark management features.',
-        s2li3: '<strong>Customization preferences:</strong> icons, colors, layout settings, and interface preferences chosen by the user.',
-        s2callout: 'Mio Bookmark does not collect personal information beyond what is necessary to provide bookmark management and optional Premium activation.',
-        s3Title: '3. How We Use Information',
-        s3li1: "To provide the extension's core bookmark management features.",
-        s3li2: 'To display, organize, search, edit, and personalize bookmarks in Chrome.',
-        s3li3: 'To sync and maintain bookmark-related settings for the current user profile.',
-        s3li4: 'To send activation keys or verify Premium access when a user provides an email address.',
-        s3li5: 'To respond to support requests related to extension access or functionality.',
-        s4Title: '4. Data Sharing',
-        s4p1: 'We do not sell personal information. We do not share user data with third parties except when necessary to operate the service, such as using an email delivery provider to send activation emails, or when required by law.',
-        s5Title: '5. Data Retention',
-        s5p1: 'We retain personal information only for as long as necessary to provide the service, comply with legal obligations, resolve disputes, and enforce our agreements.',
-        s6Title: '6. Data Security',
-        s6p1: 'We take reasonable administrative, technical, and organizational measures to protect information against unauthorized access, alteration, disclosure, or destruction.',
-        s7Title: '7. Your Choices',
-        s7p1: 'You may contact us to request access, correction, or deletion of personal information you have provided, subject to applicable law and technical limitations.',
-        s8Title: '8. Changes to This Policy',
-        s8p1: 'We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised effective date.',
-        s9Title: '9. Contact',
-        s9p1: 'If you have questions about this Privacy Policy, please contact:',
-        emailLabel: 'Email:',
-        footer: '© 2026 Mio Bookmark. All rights reserved.'
-      },
-      vi: {
-        badge: 'Mio Bookmark • Tiện ích Chrome',
-        heroTitle: 'Chính Sách Quyền Riêng Tư',
-        heroDesc: 'Chính sách này giải thích Mio Bookmark có thể truy cập hoặc thu thập những thông tin nào, cách các thông tin đó được sử dụng và cách chúng tôi bảo vệ dữ liệu khi bạn sử dụng tiện ích.',
-        effectiveLabel: 'Ngày hiệu lực:',
-        effectiveDate: '15 tháng 3, 2026',
-        contactLabel: 'Liên hệ:',
-        contentsTitle: 'Nội dung',
-        toc1: '1. Mục đích của tiện ích',
-        toc2: '2. Thông tin chúng tôi thu thập',
-        toc3: '3. Cách chúng tôi sử dụng thông tin',
-        toc4: '4. Chia sẻ dữ liệu',
-        toc5: '5. Thời gian lưu trữ dữ liệu',
-        toc6: '6. Bảo mật dữ liệu',
-        toc7: '7. Quyền lựa chọn của bạn',
-        toc8: '8. Thay đổi chính sách này',
-        toc9: '9. Liên hệ',
-        s1Title: '1. Mục đích của tiện ích',
-        s1p1: 'Mio Bookmark được thiết kế với mục đích duy nhất là giúp người dùng quản lý bookmark Chrome theo cách trực quan và thuận tiện hơn. Tiện ích cho phép xem bookmark theo cây thư mục, tìm kiếm nhanh, sắp xếp lại mục, lưu trang hiện tại, đồng bộ bookmark từ profile Chrome hiện tại và tùy chỉnh hiển thị thư mục bằng icon, màu sắc và giao diện.',
-        s1p2: 'Mọi chức năng đều chỉ nhằm hỗ trợ việc tổ chức, truy cập và cá nhân hóa bookmark trong trình duyệt.',
-        s2Title: '2. Thông tin chúng tôi thu thập',
-        s2p1: 'Chúng tôi chỉ thu thập hoặc truy cập thông tin khi cần thiết để cung cấp chức năng của tiện ích.',
-        s2li1: '<strong>Địa chỉ email:</strong> chỉ khi người dùng tự nguyện cung cấp để nhận mã kích hoạt hoặc bật quyền truy cập Premium.',
-        s2li2: '<strong>Dữ liệu liên quan đến bookmark:</strong> thư mục bookmark, các mục bookmark và cấu trúc liên quan có sẵn trong profile Chrome của người dùng, chỉ khi cần cho các chức năng quản lý bookmark.',
-        s2li3: '<strong>Tùy chọn cá nhân hóa:</strong> icon, màu sắc, bố cục và các tùy chọn giao diện do người dùng lựa chọn.',
-        s2callout: 'Mio Bookmark không thu thập thông tin cá nhân ngoài những gì cần thiết để cung cấp chức năng quản lý bookmark và kích hoạt Premium tùy chọn.',
-        s3Title: '3. Cách chúng tôi sử dụng thông tin',
-        s3li1: 'Để cung cấp các chức năng cốt lõi của tiện ích quản lý bookmark.',
-        s3li2: 'Để hiển thị, sắp xếp, tìm kiếm, chỉnh sửa và cá nhân hóa bookmark trong Chrome.',
-        s3li3: 'Để đồng bộ và duy trì các cài đặt liên quan đến bookmark cho profile người dùng hiện tại.',
-        s3li4: 'Để gửi mã kích hoạt hoặc xác minh quyền truy cập Premium khi người dùng cung cấp email.',
-        s3li5: 'Để phản hồi các yêu cầu hỗ trợ liên quan đến quyền truy cập hoặc chức năng của tiện ích.',
-        s4Title: '4. Chia sẻ dữ liệu',
-        s4p1: 'Chúng tôi không bán thông tin cá nhân. Chúng tôi không chia sẻ dữ liệu người dùng với bên thứ ba ngoại trừ khi cần thiết để vận hành dịch vụ, chẳng hạn như sử dụng nhà cung cấp gửi email để gửi mã kích hoạt, hoặc khi pháp luật yêu cầu.',
-        s5Title: '5. Thời gian lưu trữ dữ liệu',
-        s5p1: 'Chúng tôi chỉ lưu giữ thông tin cá nhân trong thời gian cần thiết để cung cấp dịch vụ, tuân thủ nghĩa vụ pháp lý, giải quyết tranh chấp và thực thi các thỏa thuận của chúng tôi.',
-        s6Title: '6. Bảo mật dữ liệu',
-        s6p1: 'Chúng tôi áp dụng các biện pháp quản trị, kỹ thuật và tổ chức hợp lý để bảo vệ thông tin khỏi truy cập, thay đổi, tiết lộ hoặc phá hủy trái phép.',
-        s7Title: '7. Quyền lựa chọn của bạn',
-        s7p1: 'Bạn có thể liên hệ với chúng tôi để yêu cầu truy cập, chỉnh sửa hoặc xóa thông tin cá nhân mà bạn đã cung cấp, tùy theo pháp luật hiện hành và các giới hạn kỹ thuật.',
-        s8Title: '8. Thay đổi chính sách này',
-        s8p1: 'Chúng tôi có thể cập nhật Chính sách Quyền riêng tư này theo thời gian. Mọi thay đổi sẽ được đăng trên trang này cùng với ngày hiệu lực được cập nhật.',
-        s9Title: '9. Liên hệ',
-        s9p1: 'Nếu bạn có câu hỏi về Chính sách Quyền riêng tư này, vui lòng liên hệ:',
-        emailLabel: 'Email:',
-        footer: '© 2026 Mio Bookmark. Đã đăng ký mọi quyền.'
-      }
-    };
-
-    function setLanguage(lang) {
-      const dict = translations[lang] || translations.en;
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-i18n]').forEach((element) => {
-        const key = element.getAttribute('data-i18n');
-        if (dict[key]) {
-          element.innerHTML = dict[key];
-        }
-      });
-
-      document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-
-      try {
-        localStorage.setItem('mio-bookmark-lang', lang);
-      } catch (error) {}
-    }
-
-    document.querySelectorAll('.lang-btn').forEach((btn) => {
-      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-    });
-
-    const savedLang = (() => {
-      try {
-        return localStorage.getItem('mio-bookmark-lang');
-      } catch (error) {
-        return null;
-      }
-    })();
-
-    const browserLang = (navigator.language || '').toLowerCase();
-    const defaultLang = savedLang || (browserLang.startsWith('vi') ? 'vi' : 'en');
-    setLanguage(defaultLang);
-  </script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Mio Bookmark Privacy Policy — local bookmark storage, permissions, data sharing, deletion and contact. English / Tiếng Việt.">
+<title>Mio Bookmark Privacy Policy</title>
+<style>*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#f4f7fc;color:#243953;font:16px/1.8 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:#386491;text-underline-offset:4px;overflow-wrap:anywhere}a:hover{color:#193c65}a:focus-visible{outline:3px solid #76a4da;outline-offset:5px}header{background:radial-gradient(ellipse at 85% 15%,#3d6383 0,transparent 48%),linear-gradient(125deg,#17263f,#294560);color:#f4f9ff;padding:58px 24px 46px}.wrap{max-width:880px;margin:auto}.brand{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c6ddf3}h1{font-size:clamp(34px,6vw,52px);line-height:1.2;letter-spacing:-.035em;margin:18px 0}header p{color:#ccdded;margin:12px 0}.meta{font-size:14px}nav{display:flex;gap:24px;margin-top:24px}nav a{color:#f4f9ff;font-weight:650}nav a:hover{color:#c4e2ff}main{padding:36px 24px 56px}article{background:#fff;border:1px solid #dce5f0;border-radius:18px;padding:36px 42px;margin-bottom:28px;box-shadow:0 8px 28px #213e6010}h2{font-size:28px;line-height:1.3;margin:0 0 20px;color:#203854}h3{font-size:20px;line-height:1.4;margin:30px 0 12px;color:#274769}p{margin:0 0 14px;overflow-wrap:anywhere}ul{padding-left:23px}li{margin:8px 0}.summary{border-left:3px solid #91b5d7;padding:8px 0 8px 18px;color:#49637e;margin-bottom:24px}footer{font-size:14px;color:#65788f;padding:0 24px 36px}footer p{margin:8px 0}@media(max-width:600px){header{padding:36px 20px}main{padding:22px 14px 32px}article{padding:25px 22px;border-radius:14px}h2{font-size:25px}h3{font-size:19px}body{font-size:15px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body>
+<header><div class="wrap"><div class="brand">Mio Bookmark</div><h1>Privacy Policy</h1><p>Chính sách quyền riêng tư</p><p class="meta">Updated / Cập nhật: <time datetime="2026-11-06">06 November 2026 · 06/11/2026</time><br>Mio Bookmark 0.2.0</p><nav aria-label="Policy languages"><a href="#english" lang="en">English</a><a href="#tieng-viet" lang="vi">Tiếng Việt</a></nav></div></header><main class="wrap">
+<article id="english" lang="en" aria-labelledby="title-en"><h2 id="title-en">English</h2><p class="summary">Your bookmark library and preferences stay in your Chrome profile. Mio Bookmark does not upload them to a developer server.</p>
+<section aria-labelledby="en-1"><h3 id="en-1">1. Purpose and scope</h3>
+<p>Mio Bookmark helps you save, organize, customize, search, and open Chrome bookmarks through a side panel, popup, and full-page library. This policy describes version 0.2.0.</p>
+<p>The extension does not require an account, an email address, an activation key, or Premium registration.</p>
+</section>
+<section aria-labelledby="en-2"><h3 id="en-2">2. Data the extension accesses and stores</h3>
+<p>Bookmark data: folder names, bookmark titles and URLs, identifiers, folder relationships, ordering, and available bookmark metadata. Importing from the current Chrome profile creates or updates a copy in the extension’s local storage.</p>
+<p>Current tab data: the active tab’s title, URL, and available favicon URL when you save the current page. Favicon metadata may also be updated when you open a bookmark.</p>
+<p>Preferences and interface state: folder icons and colors, favorite icons, language, appearance, sorting, the destination folder for saved pages, the direct-editing setting, import timestamps and counts, and temporary folder-expansion and side-panel window state.</p>
+<p>Search terms are used within the extension to filter bookmarks. The extension does not send search terms to a search provider or developer server.</p>
+</section>
+<section aria-labelledby="en-3"><h3 id="en-3">3. How data is used and stored</h3>
+<p>Data is used to display and search your library, save pages, manage bookmarks and folders, remember preferences, and operate the side panel. Persistent data is stored in chrome.storage.local in your Chrome profile. Temporary interface state uses chrome.storage.session, sessionStorage, or memory.</p>
+<p>The extension has no developer-operated backend, analytics, advertising, or telemetry. It does not upload your bookmark library or settings to the developer. It does not use chrome.storage.sync for its own data.</p>
+<p>Importing from the current profile is not a developer cloud-sync service. If you enable direct bookmark management, creating, renaming, moving, or deleting items can change the bookmarks in Chrome itself. Chrome’s own bookmark synchronization, if enabled in your browser, is governed by your Chrome settings and Google’s policies.</p>
+</section>
+<section aria-labelledby="en-4"><h3 id="en-4">4. Permissions</h3>
+<p>bookmarks — Read bookmarks when you import them; create, rename, move, or delete browser bookmarks when you enable direct management and perform those actions.</p>
+<p>storage — Save the local bookmark copy, preferences, favicon metadata, and temporary extension state.</p>
+<p>sidePanel — Display and control the bookmark manager beside your current webpage.</p>
+<p>tabs — Read the current tab’s title, URL, and favicon for saving; open bookmarked pages and the full-page library; update available favicon metadata. The extension does not read page bodies, passwords, or messages, and does not use Chrome’s history API to collect your browsing history.</p>
+</section>
+<section aria-labelledby="en-5"><h3 id="en-5">5. Sharing and third-party requests</h3>
+<p>The developer does not sell or rent your bookmark data, use it for advertising, or transfer it for purposes unrelated to bookmark management. The extension does not transmit your library to a developer server.</p>
+<p>Opening a bookmark connects your browser to that website. Displaying a stored remote favicon can request an image from the favicon’s host. These third parties can receive ordinary connection data, such as your IP address and browser request headers, under their own policies. This is separate from uploading your complete bookmark library.</p>
+<p>If you email the developer for support, your email address and the contents you choose to send are used to respond to that request. Please avoid sending private bookmark lists or other sensitive information unless needed for your support request.</p>
+<p>This policy website is hosted on GitHub Pages. GitHub may process technical request data under its own privacy statement. This page contains no analytics scripts, advertising, or tracking cookies.</p>
+</section>
+<section aria-labelledby="en-6"><h3 id="en-6">6. Retention and deletion</h3>
+<p>Local extension data remains in your Chrome profile until you remove the relevant items, clear the extension’s storage, or uninstall the extension. Temporary state is kept only for the relevant tab, browser session, or running interface.</p>
+<p>You can delete bookmarks and folders through the extension. In direct-management mode, deletion can also remove the corresponding browser bookmarks. Uninstalling the extension removes its own stored data from that Chrome installation; it does not remove bookmarks stored independently in Chrome or restore bookmarks you previously deleted.</p>
+<p>The developer has no server copy of your bookmark library to retrieve or delete. Any browser synchronization or backups managed outside the extension are controlled by their respective providers.</p>
+</section>
+<section aria-labelledby="en-7"><h3 id="en-7">7. Your choices and security</h3>
+<p>You choose when to import bookmarks, save a page, customize a folder, or enable direct management. You can stop using the extension or remove it in Chrome’s extension settings.</p>
+<p>The extension relies on Chrome’s storage and extension-permission protections and does not add separate encryption to its local data. Access to your device, Chrome profile, and backups should be protected using your own device and browser settings. No method of storage or transmission is completely secure.</p>
+</section>
+<section aria-labelledby="en-8"><h3 id="en-8">8. Changes to this policy</h3>
+<p>This policy will be updated when the extension’s data practices change. The updated date is shown on this page. Review this policy when updating the extension.</p>
+</section>
+<section aria-labelledby="en-9"><h3 id="en-9">9. Contact</h3>
+<p>For questions about Mio Bookmark or this privacy policy, contact the developer at <a href="mailto:nguyenquocan841@gmail.com">nguyenquocan841@gmail.com</a>.</p>
+</section>
+</article>
+<article id="tieng-viet" lang="vi" aria-labelledby="title-vi"><h2 id="title-vi">Tiếng Việt</h2><p class="summary">Thư viện bookmark và tùy chọn được lưu trong profile Chrome của bạn. Mio Bookmark không tải chúng lên máy chủ của nhà phát triển.</p>
+<section aria-labelledby="vi-1"><h3 id="vi-1">1. Mục đích và phạm vi</h3>
+<p>Mio Bookmark giúp bạn lưu, sắp xếp, tùy chỉnh, tìm kiếm và mở bookmark Chrome thông qua side panel, popup và trang thư viện đầy đủ. Chính sách này mô tả phiên bản 0.2.0.</p>
+<p>Tiện ích không yêu cầu tài khoản, địa chỉ email, khóa kích hoạt hoặc đăng ký Premium.</p>
+</section>
+<section aria-labelledby="vi-2"><h3 id="vi-2">2. Dữ liệu tiện ích truy cập và lưu trữ</h3>
+<p>Dữ liệu bookmark: tên thư mục, tiêu đề và URL bookmark, mã định danh, quan hệ thư mục, thứ tự và thông tin bookmark có sẵn. Thao tác nhập từ profile Chrome hiện tại tạo hoặc cập nhật một bản sao trong bộ nhớ cục bộ của tiện ích.</p>
+<p>Dữ liệu tab hiện tại: tiêu đề, URL và URL favicon có sẵn của tab đang hoạt động khi bạn lưu trang. Thông tin favicon cũng có thể được cập nhật khi bạn mở bookmark.</p>
+<p>Tùy chọn và trạng thái giao diện: icon và màu thư mục, icon yêu thích, ngôn ngữ, giao diện, cách sắp xếp, thư mục đích khi lưu trang, chế độ chỉnh sửa trực tiếp, thời điểm và số lượng khi nhập bookmark, cùng trạng thái tạm thời của nhánh thư mục và cửa sổ side panel.</p>
+<p>Từ khóa tìm kiếm được xử lý trong tiện ích để lọc bookmark. Tiện ích không gửi từ khóa đến công cụ tìm kiếm hoặc máy chủ của nhà phát triển.</p>
+</section>
+<section aria-labelledby="vi-3"><h3 id="vi-3">3. Cách sử dụng và lưu trữ dữ liệu</h3>
+<p>Dữ liệu được dùng để hiển thị và tìm kiếm trong thư viện, lưu trang, quản lý bookmark và thư mục, ghi nhớ tùy chọn và vận hành side panel. Dữ liệu lâu dài được lưu bằng chrome.storage.local trong profile Chrome. Trạng thái tạm thời dùng chrome.storage.session, sessionStorage hoặc bộ nhớ khi đang chạy.</p>
+<p>Tiện ích không có máy chủ do nhà phát triển vận hành, công cụ phân tích, quảng cáo hoặc telemetry. Tiện ích không tải thư viện bookmark hay tùy chọn của bạn lên nhà phát triển và không dùng chrome.storage.sync cho dữ liệu riêng của tiện ích.</p>
+<p>Nhập từ profile hiện tại không phải dịch vụ đồng bộ đám mây của nhà phát triển. Nếu bạn bật quản lý bookmark trực tiếp, thao tác tạo, đổi tên, di chuyển hoặc xóa có thể thay đổi bookmark trong Chrome. Tính năng đồng bộ bookmark riêng của Chrome, nếu bạn bật, tuân theo cài đặt Chrome và chính sách của Google.</p>
+</section>
+<section aria-labelledby="vi-4"><h3 id="vi-4">4. Các quyền truy cập</h3>
+<p>bookmarks — Đọc bookmark khi bạn nhập dữ liệu; tạo, đổi tên, di chuyển hoặc xóa bookmark trình duyệt khi bạn bật quản lý trực tiếp và thực hiện các thao tác đó.</p>
+<p>storage — Lưu bản sao bookmark cục bộ, tùy chọn, thông tin favicon và trạng thái tạm thời của tiện ích.</p>
+<p>sidePanel — Hiển thị và điều khiển trình quản lý bookmark bên cạnh trang web hiện tại.</p>
+<p>tabs — Đọc tiêu đề, URL và favicon của tab hiện tại để lưu trang; mở bookmark và trang thư viện đầy đủ; cập nhật thông tin favicon có sẵn. Tiện ích không đọc nội dung trang, mật khẩu hoặc tin nhắn và không sử dụng API history của Chrome để thu thập lịch sử duyệt web.</p>
+</section>
+<section aria-labelledby="vi-5"><h3 id="vi-5">5. Chia sẻ dữ liệu và yêu cầu tới bên thứ ba</h3>
+<p>Nhà phát triển không bán hoặc cho thuê dữ liệu bookmark, không dùng dữ liệu này để quảng cáo hoặc chuyển dữ liệu cho mục đích không liên quan đến quản lý bookmark. Tiện ích không gửi thư viện của bạn đến máy chủ của nhà phát triển.</p>
+<p>Khi mở bookmark, trình duyệt kết nối đến trang web đó. Khi hiển thị favicon từ xa đã lưu, trình duyệt có thể gửi yêu cầu tải ảnh đến máy chủ lưu favicon. Những bên này có thể nhận dữ liệu kết nối thông thường, như địa chỉ IP và thông tin header của trình duyệt, theo chính sách riêng của họ. Hoạt động này khác với việc tải toàn bộ thư viện bookmark của bạn lên.</p>
+<p>Nếu bạn gửi email hỗ trợ, địa chỉ email và nội dung bạn chủ động gửi được sử dụng để phản hồi yêu cầu đó. Vui lòng hạn chế gửi danh sách bookmark riêng tư hoặc thông tin nhạy cảm nếu không cần thiết để hỗ trợ.</p>
+<p>Trang chính sách này được lưu trữ trên GitHub Pages. GitHub có thể xử lý dữ liệu kỹ thuật của yêu cầu truy cập theo chính sách riêng của họ. Trang này không có mã phân tích, quảng cáo hoặc cookie theo dõi.</p>
+</section>
+<section aria-labelledby="vi-6"><h3 id="vi-6">6. Thời gian lưu và xóa dữ liệu</h3>
+<p>Dữ liệu cục bộ của tiện ích được giữ trong profile Chrome cho đến khi bạn xóa các mục tương ứng, xóa bộ nhớ của tiện ích hoặc gỡ tiện ích. Trạng thái tạm thời chỉ được giữ trong tab, phiên trình duyệt hoặc giao diện đang chạy tương ứng.</p>
+<p>Bạn có thể xóa bookmark và thư mục trong tiện ích. Khi bật quản lý trực tiếp, thao tác xóa có thể xóa cả bookmark tương ứng của trình duyệt. Gỡ tiện ích sẽ xóa dữ liệu riêng của tiện ích tại bản cài Chrome đó; thao tác này không xóa bookmark được lưu riêng trong Chrome và không khôi phục bookmark bạn đã xóa trước đó.</p>
+<p>Nhà phát triển không có bản sao thư viện bookmark trên máy chủ để truy xuất hoặc xóa. Dữ liệu đồng bộ hoặc sao lưu bên ngoài tiện ích do nhà cung cấp tương ứng kiểm soát.</p>
+</section>
+<section aria-labelledby="vi-7"><h3 id="vi-7">7. Lựa chọn và bảo mật</h3>
+<p>Bạn quyết định khi nào nhập bookmark, lưu trang, tùy chỉnh thư mục hoặc bật quản lý trực tiếp. Bạn có thể ngừng sử dụng hoặc gỡ tiện ích trong phần quản lý tiện ích của Chrome.</p>
+<p>Tiện ích dựa vào cơ chế lưu trữ và bảo vệ quyền của Chrome, không bổ sung lớp mã hóa riêng cho dữ liệu cục bộ. Bạn nên bảo vệ thiết bị, profile Chrome và bản sao lưu bằng cài đặt thiết bị và trình duyệt của mình. Không có phương thức lưu trữ hoặc truyền dữ liệu nào an toàn tuyệt đối.</p>
+</section>
+<section aria-labelledby="vi-8"><h3 id="vi-8">8. Thay đổi chính sách</h3>
+<p>Chính sách sẽ được cập nhật khi cách xử lý dữ liệu của tiện ích thay đổi. Ngày cập nhật được hiển thị trên trang này. Bạn nên xem lại chính sách khi cập nhật tiện ích.</p>
+</section>
+<section aria-labelledby="vi-9"><h3 id="vi-9">9. Liên hệ</h3>
+<p>Nếu có câu hỏi về Mio Bookmark hoặc chính sách quyền riêng tư, vui lòng liên hệ nhà phát triển qua <a href="mailto:nguyenquocan841@gmail.com">nguyenquocan841@gmail.com</a>.</p>
+</section>
+</article>
+</main><footer class="wrap"><p><a href="https://chromewebstore.google.com/detail/kpgdfdefilmndlaafkojelcmkjjoagcn">Mio Bookmark on Chrome Web Store</a></p><p>Website hosting: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a></p></footer></body></html>
